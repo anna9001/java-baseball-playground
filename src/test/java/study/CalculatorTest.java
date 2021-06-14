@@ -17,7 +17,7 @@ public class CalculatorTest {
 
         System.out.println("num.length => "+numbers.length);
         //( Math.random() * ( 최대값 - 최소값 )  ) + 최소값 -- 최소갑 설정 방법
-        int length = ((int) (Math.random() * (10-3))+2 )  ; // 1+2 최소 길이 3 
+        int length = ((int) (Math.random() * (10-3))+3 )  ; // 1+2 최소 길이 3 
         // 홀수만 나오게 - 짝수일 경우 operation 다음 숫자 못오기 때문.
         if(length%2==0){ length += 1; };
 
