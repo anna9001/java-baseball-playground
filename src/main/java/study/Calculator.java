@@ -10,6 +10,7 @@ public class Calculator {
         System.out.println("입력하세요");
         String input = scanner.nextLine();    
         String[] values = input.split("");
+        scanner.close();
         return values;
     }
 
@@ -19,53 +20,50 @@ public class Calculator {
              if(i==0){
                 result = Integer.parseInt(input[i]);
              }
-             String sign = input[i*2+1];
+             String operator = input[i*2+1];
              int nextNum = Integer.parseInt(input[i*2+2]);
             
-             switch(sign){
+             switch(operator){
                 case "+" : 
-                    result = Sign.PLUS.apply(result, nextNum );
+                    result = Operation.PLUS.apply(result, nextNum );
                     break;
                 case "-" : 
-                    result = Sign.MINUS.apply(result,nextNum);
+                    result = Operation.MINUS.apply(result,nextNum);
                     break;
                 case "*" : 
-                    result = Sign.MULTIPLY.apply(result,nextNum);
+                    result = Operation.MULTIPLY.apply(result,nextNum);
                     break;
                 case "/" : 
-                    result = Sign.DIVIDE.apply(result, nextNum);
+                    result = Operation.DIVIDE.apply(result, nextNum);
                     break;
             }
         }
         return result;
     }
     
-    enum Sign{
-        PLUS("+"){
+    enum Operation{
+        PLUS {
             public int apply(int x,int y){
                 return x+y;
             }
         },
-        MINUS("-"){
+        MINUS {
             public int apply(int x,int y){
                 return x-y;
             }
         },
-        MULTIPLY("*"){
+        MULTIPLY {
             public int apply(int x,int y){
                 return x*y;
             }
         },
-        DIVIDE("/"){
+        DIVIDE {
             public int apply(int x,int y){
                 return x/y;
             }
         };
 
-        private String operator;
-        Sign(String operator){
-            this.operator = operator;
-        }
+        
         abstract int apply(int x,int y);
     }
 }
