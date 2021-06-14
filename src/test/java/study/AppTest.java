@@ -1,4 +1,4 @@
-package com.tdd.study;
+package study;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

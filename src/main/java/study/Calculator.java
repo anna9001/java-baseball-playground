@@ -1,4 +1,4 @@
-package com.tdd.study;
+package study;
 
 import java.io.InputStreamReader;
 import java.util.Scanner;
